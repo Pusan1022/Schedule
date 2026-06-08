@@ -1224,6 +1224,9 @@ const CONFIG = {
 };
 
 const PROXIES = [
+  // 본인 전용 Cloudflare Worker (최우선, 가장 안정적)
+  (url) => `https://airbnb-proxy.yiminan1022.workers.dev/?url=${encodeURIComponent(url)}`,
+  // 무료 공용 프록시들 (본인 프록시 실패 시 백업용)
   (url) => `https://corsproxy.io/?url=${encodeURIComponent(url)}`,
   (url) => `https://api.allorigins.win/raw?url=${encodeURIComponent(url)}`,
   (url) => `https://api.codetabs.com/v1/proxy/?quest=${encodeURIComponent(url)}`,
